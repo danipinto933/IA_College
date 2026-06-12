@@ -1,0 +1,19 @@
+# Ignorar archivos de variables de entorno locales (¡Muy importante por seguridad!)
+.env
+collegeWithAI/.env
+collegeWithAi_frontend/.env
+
+# Ignorar archivos del sistema operativo
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Ignorar dependencias locales y carpetas de compilados
+**/node_modules/
+**/target/
+**/dist/
+**/.mvn/
+.idea/
+.vscode/
+*.iml
+*.log

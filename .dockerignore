@@ -1,0 +1,11 @@
+# Ignorar dependencias locales y compilados
+**/node_modules
+**/target
+**/.mvn
+**/dist
+
+# Ignorar archivos de configuración local
+**/.env
+**/.git
+**/.gitignore
+**/.gitattributes

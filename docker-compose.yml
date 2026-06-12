@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: college-backend
+    restart: always
+    environment:
+      POSTGRES_DB: CollegeWithAI
+      POSTGRES_USER: ${DB_USERNAME:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: college-frontend
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - DB_URL=jdbc:postgresql://db:5432/CollegeWithAI
+      - DB_USERNAME=${DB_USERNAME:-postgres}
+      - DB_PASSWORD=${DB_PASSWORD:-postgres}
+      - IA_API_KEY=${IA_API_KEY}
+    ports:
+      - "8080:8080"
+
+volumes:
+  pgdata:
