@@ -12,7 +12,6 @@ Desktop.ini
 **/node_modules/
 **/target/
 **/dist/
-**/.mvn/
 .idea/
 .vscode/
 *.iml
